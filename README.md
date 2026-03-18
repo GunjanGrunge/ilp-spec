@@ -1,5 +1,15 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19101583.svg)](https://doi.org/10.5281/zenodo.19101583)
+
 # ILP — Instruction Layer Protocol
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19101583.svg)](https://doi.org/10.5281/zenodo.19101583)
+@misc{ilp_spec_2026,
+  author       = {GunjanGrunge},
+  title        = {ILP — Instruction Layer Protocol},
+  year         = 2026,
+  publisher    = {Zenodo},
+  version      = {v1.0.0},
+  doi          = {10.5281/zenodo.19101583},
+  url          = {https://doi.org/10.5281/zenodo.19101583}
+}
 
 > A universal standard for how AI agents receive, interpret, and share behavioral instructions across tools, models, and environments.
 
