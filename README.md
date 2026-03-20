@@ -253,9 +253,35 @@ tags: ["typescript", "node", "api"]
 - Never commit directly to `main`
 - PR descriptions must include "Why" not just "What"
 ```
+## Design Principles
 
+- **Deterministic Resolution** — same inputs always produce same instruction set  
+- **Composable** — instructions can be layered and reused  
+- **Model-Agnostic** — works across all LLM providers  
+- **Tool-Independent** — decoupled from execution layer (MCP)  
+- **Human-Readable First** — Markdown-native, no custom DSL required
+
+  
+  ## Execution Model
+
+1. Collect ILP documents from all scopes
+2. Sort by:
+   - scope (global → task)
+   - priority (ascending)
+3. Resolve `uses:` dependencies recursively
+4. Merge instruction content:
+   - later scopes override earlier ones
+   - conflicts resolved by last-write-wins
+5. Produce final instruction stream
 ---
+## Comparison
 
+| Feature | ILP | Cursor Rules | Copilot Instructions | MCP |
+|--------|-----|-------------|----------------------|-----|
+| Cross-tool standard | ✅ | ❌ | ❌ | ✅ |
+| Behavioral control | ✅ | ✅ | ✅ | ❌ |
+| Tool integration | ❌ | ❌ | ❌ | ✅ |
+| Composability | ✅ | ⚠️ | ⚠️ | ❌ |
 ## Roadmap
 
 - [ ] `v1.0` — Core spec (frontmatter + markdown content)
@@ -272,6 +298,10 @@ ILP is an open proposal. Open an issue, fork the spec, submit a PR.
 The goal is **consensus**, not ownership. If it helps the ecosystem, it wins.
 
 ---
+## Citation
+
+ILP Spec:
+Gunjan Sarkar. "ILP — Instruction Layer Protocol." [zenodo](https://doi.org/10.5281/zenodo.19101583), 2026.
 
 ## License
 
